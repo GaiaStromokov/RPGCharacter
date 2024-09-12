@@ -78,7 +78,7 @@ passive:
   perception: 10
   investigation: 10
   stealth: 10
-pBonus: 2
-Level: 2
+pBonus: 6
+Level: 20
 ---
 

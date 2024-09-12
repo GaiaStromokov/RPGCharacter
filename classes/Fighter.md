@@ -29,20 +29,23 @@ ability:
 HP at level 1: `VIEW[{rsheet#abilityMods.con}+10][math:HPL1]`
 HP above level 1: 
 Hit Dice: `VIEW[{rsheet#Level}][math:nHDice]`
-Second Wind Usage: `VIEW[{secondWind}]`
-Skill 1: `VIEW[{proficiency.skill1}]`
-Skill 2: `VIEW[{proficiency.skill2}]`
+Second Wind Usage: `VIEW[{ability.secondWind}]`
+Skill 1: `VIEW[{skillChoice.skill1}]`
+Skill 2: `VIEW[{skillChoice.skill2}]`
 Fighting Style: `VIEW[{ability.fightingStyle}]`
 
 skills:
-Choice 1:`INPUT[inlineSelect(option(Acrobatics), option(Animal Handling), option(Athletics), option(History), option(Insight), option(Intimidation), option(Perception), option(Survival)):proficiency.skill1]`
+Choice 1:`INPUT[inlineSelect(option(Acrobatics), option(Animal Handling), option(Athletics), option(History), option(Insight), option(Intimidation), option(Perception), option(Survival)):skillChoice.skill1]`
 
-Choice 2:`INPUT[inlineSelect(option(Acrobatics), option(Animal Handling), option(Athletics), option(History), option(Insight), option(Intimidation), option(Perception), option(Survival)):proficiency.skill2]`
+Choice 2:`INPUT[inlineSelect(option(Acrobatics), option(Animal Handling), option(Athletics), option(History), option(Insight), option(Intimidation), option(Perception), option(Survival)):skillChoice.skill2]`
 
 Fighting Style: `INPUT[inlineSelect(option(Archery), option(Defense), option(Dueling), option(Great Weapon Fighting), option(Protection), option(Two-Weapon Fighting)):ability.fightingStyle]`
 
 
->>> [!hint | bg-c-red]+ Second Wind (`VIEW[{ability.secondWind}]`/1) `INPUT[slider(minValue(0), maxValue(1), addLabels):ability.secondWind]`
+>[!hint | bg-c-red]+ Second Wind (`VIEW[{ability.secondWind}]`/1) `INPUT[slider(minValue(0), maxValue(1), addLabels):ability.secondWind]`
+
+
+
 
 
 
