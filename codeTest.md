@@ -1,21 +1,12 @@
 ---
-level: 2
+level: ""
 testnum: 5
 ability:
   secondWind: 1
+LevelAdjust: ""
 ---
 ## Level
-level: `INPUT[number(class(nb-mb-css)):level]`
-
-```meta-bind-button
-style: primary
-label: Update Data
-actions:
-  - type: command
-    command: "Templates/update metadata.md"
-```
+level: `INPUT[text(class(nb-mb-css)):level]`
 
 
-```meta-bind-js-view  
-<button data-type="template" data-template="Templates/update metadata.md"">Run Template</button>
-```
+`VIEW[{level}][text: LevelAdjust]`

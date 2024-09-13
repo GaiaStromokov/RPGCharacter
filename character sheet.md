@@ -7,20 +7,20 @@ pLevel: 1
 class: 
 feats: 
 background: 
-languages: 
-resistances: 
+languages: Common
+resistances: which, ones
 hp: 1
 tempHP: 0
-ac: 10
+ac: 5
 prof: 2
-
 passive:
   perception: 5
   investigation: 5
   insight: 5
 ---
 
-
+## Level
+Level: `INPUT[number(class(nb-mb-css)):rsheet#Level]`
 ## Ability Scores
 | <nobr>Stat</nobr> | <nobr>Score</nobr> | <nobr>#</nobr> | <nobr>Stat</nobr> | <nobr>Score</nobr> | <nobr>#</nobr> |
 | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -34,13 +34,26 @@ passive:
 | CON  | `INPUT[toggle:rsheet#savingThrows.con]` | `VIEW[{rsheet#abilityMods.con}+{rsheet#pBonus}*{rsheet#savingThrows.con}]` | INT  | `INPUT[toggle:rsheet#savingThrows.int]` | `VIEW[{rsheet#abilityMods.int}+{rsheet#pBonus}*{rsheet#savingThrows.int}]` |
 | WIS  | `INPUT[toggle:rsheet#savingThrows.wis]` | `VIEW[{rsheet#abilityMods.wis}+{rsheet#pBonus}*{rsheet#savingThrows.wis}]` | CHA  | `INPUT[toggle:rsheet#savingThrows.cha]` | `VIEW[{rsheet#abilityMods.cha}+{rsheet#pBonus}*{rsheet#savingThrows.cha}]` |
 
-## Level
-Level: `INPUT[number(class(nb-mb-css)):rsheet#Level]`
-
 ## Passive Skills
 | Perception | Investigation | Stealth |
 |:----------:|:-------------:|:-------:|
 |`VIEW[{rsheet#passive.perception}]`|`VIEW[{rsheet#passive.investigation}]`           |`VIEW[{rsheet#passive.stealth}]`|
+
+| Hit Points  | `INPUT[number:rsheet#hp]`      |
+| ----------- | ----------------------------------------------- |
+| Temp HP     | `INPUT[number:rsheet#temphp]`  |
+| Hit dice    | `VIEW[{rsheet#Level}]`d`VIEW[{rsheet#hitDice}]` |
+| Initiative  | `VIEW[{rsheet#abilityMods.dex}]`                |
+| AC          | `INPUT[number:rsheet#AC]`                         |
+| Resistances | `INPUT[text:rsheet#Resistances]`                |
+|             |                                                 |
+
+
+
+
+
+
+
 ## Skills
 | Skill           |                          Expertise                           |                 Proficiency                  |                                                               Total                                                               |
 | :-------------- | :----------------------------------------------------------: | :------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: |
@@ -67,10 +80,10 @@ Level: `INPUT[number(class(nb-mb-css)):rsheet#Level]`
 # Other proficiencies 
  |
  ---|---|
-[[Languages]] | `=replace(join(this.languages, ","),",","<BR>")` |
-[[Weapons]]| `=replace(join(this.weapons, ","),",","<BR>")` |
-[[Armor]] | `=replace(join(this.armor, ","),",","<BR>")` |
-[[Tools]] | `=replace(join(link(this.tools), ","),",","<BR>")` |
+[[Languages]] |`INPUT[text:rsheet#Languages]`|
+[[Weapons]]| `INPUT[text:rsheet#Weapons]` |
+[[Armor]] | `INPUT[text:rsheet#Armor]`|
+[[Tools]] | `INPUT[text:rsheet#Tools]` |
 
 
 
