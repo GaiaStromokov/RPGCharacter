@@ -1,0 +1,12 @@
+.navigation-buttons button {
+    background-color: #0056b3; /* High contrast blue */
+    color: white; /* White text */
+    border-radius: 10px; /* Rounded corners */
+    border: none; /* No border */
+    padding: 10px; /* Padding for a nicer look */
+    cursor: pointer; /* Pointer on hover */
+}
+
+.navigation-buttons button:hover {
+    background-color: #004494; /* Slightly darker blue on hover */
+}
