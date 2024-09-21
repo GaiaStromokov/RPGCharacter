@@ -67,7 +67,7 @@ passive:
   stealth: 12
 pBonus: 6
 Level: 20
-mhp: 20
+mhp: 0
 chp: 20
 temphp: 
 hitDice: 8
@@ -96,7 +96,7 @@ spellslot:
   lvl8: 2
   lvl9: 1
 spellcast:
-  lvl1: 9
+  lvl1: 0
   lvl2: 0
   lvl3: 0
   lvl4: 0
@@ -139,13 +139,13 @@ WP4:
   Type: piercing
   Range: melee
 WP5:
-  name: ""
-  Hit: ""
-  Damage: ""
-  Bonus: ""
-  Property: ""
-  Type: ""
-  Range: ""
+  name: whip
+  Hit: "`VIEW[{rsheet#abilityMods.dex}+{rsheet#pBonus}]`"
+  Damage: 1d4
+  Bonus: "`VIEW[{rsheet#abilityMods.dex}]`"
+  Property: finesse, reach
+  Type: slashing
+  Range: melee
 ds:
   s1: false
   s2: false
