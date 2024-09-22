@@ -435,46 +435,10 @@ ___
 >| `INPUT[text:rsheet#l2c8]`  | `INPUT[text:rsheet#l5c6]`  |                           |
 >| `INPUT[text:rsheet#l2c9]`  | `INPUT[text:rsheet#l5c7]`  |                           |
 >| `INPUT[text:rsheet#l2c10]` |                            |                           |
-
 ___
 > [!Admin| clean no-i]+
 >Set Max HP`INPUT[number:rsheet#mhp]`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+___
 
 
 
@@ -518,8 +482,6 @@ const str = inputs
 
 // Render the markdown
 return engine.markdown.create(str);
-
-
 ~~~
 
 
