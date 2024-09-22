@@ -11,10 +11,8 @@ modifier: -5
 ac: 5
 day_suffix: th
 portrait: "![[Tom.png]]"
-globalMod:
-  savingThrow: 
-spells:
-  slots2: 1
+fc-date:
+  day: 12
 ---
  ---
 title: Tom
@@ -267,7 +265,7 @@ spells:
 >>> - [ ] 
 >>
 >>> [!hint | bg-c-blue]+ 2<sup>nd</sup> level spells (`VIEW[{spells.slots2}]`/1)  `INPUT[slider(minValue(0), maxValue(1), addLabels):spells.slots2]`
->>> - [x] 
+>>> - [ ] 
 >>
 >>> [!hint | bg-c-yellow]+ 3<sup>rd</sup> level spells (`VIEW[{spells.slots3}]`/1) `INPUT[slider(minValue(0), maxValue(1), addLabels):spells.slots3]`
 >>> - [ ] 
