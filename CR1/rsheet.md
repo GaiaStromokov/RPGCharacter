@@ -1,19 +1,19 @@
 ---
 plClass: Barbarian
 abilityScores:
-  str: 20
-  dex: 15
-  con: 15
-  int: 15
-  wis: 15
-  cha: 15
+  str: 12
+  dex: 12
+  con: 12
+  int: 12
+  wis: 12
+  cha: 12
 abilityMods:
-  str: 5
-  dex: 2
-  con: 2
-  int: 2
-  wis: 2
-  cha: 2
+  str: 1
+  dex: 1
+  con: 1
+  int: 1
+  wis: 1
+  cha: 1
 savingThrows:
   str: false
   dex: false
@@ -62,11 +62,11 @@ expertise:
   stealth: false
   survival: false
 passive:
-  perception: 12
-  investigation: 12
-  stealth: 12
-pBonus: 6
-Level: 20
+  perception: 11
+  investigation: 11
+  stealth: 11
+pBonus: 2
+Level: 1
 mhp: 0
 chp: 20
 temphp: 
@@ -75,7 +75,7 @@ hDUse: 0
 AC: 11
 Resistances: Poison, Acid, Fire
 Immunities: soup
-Languages: common, dwarvish
+Languages: common, dwarvish, elvish, giant
 Weapons: simple, simple
 Armor: medium, heavy
 Tools: glassblowers, flowers
@@ -106,12 +106,12 @@ spellcast:
   lvl8: 0
   lvl9: 0
 WP1:
-  name: shortsword
+  name: rapier
   Hit: "`VIEW[{rsheet#abilityMods.dex}+{rsheet#pBonus}]`"
-  Damage: 1d6
+  Damage: 1d8
   Bonus: "`VIEW[{rsheet#abilityMods.dex}]`"
-  Property: finesse, light
-  Type: slashing
+  Property: finesse
+  Type: piercing
   Range: melee
   Dmg: ""
 WP2:
@@ -150,12 +150,15 @@ ds:
   s1: false
   s2: false
   s3: false
+  f1: false
+  f2: false
+  f3: false
 l0c1: Mending
 l0c2: Prestidigitation
 l3c1: Fireball
 l9c1: Wish
 l1c1: Aid
-l0c3: ""
+l0c3: Druidcraft
 l4c1: ""
 l6c1: Prismatic_Spray
 ---

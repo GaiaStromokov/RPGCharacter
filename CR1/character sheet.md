@@ -477,7 +477,6 @@ ___
 
 
 
-
 `VIEW[floor(({rsheet#abilityScores.str}-10)/2)][math(hidden):rsheet#abilityMods.str]`
 `VIEW[floor(({rsheet#abilityScores.dex}-10)/2)][math(hidden):rsheet#abilityMods.dex]`
 `VIEW[floor(({rsheet#abilityScores.con}-10)/2)][math(hidden):rsheet#abilityMods.con]`
@@ -490,6 +489,8 @@ ___
 `VIEW[{rsheet#abilityMods.wis}+10][math(hidden):rsheet#passive.perception]`
 `VIEW[{rsheet#abilityMods.int}+10][math(hidden):rsheet#passive.investigation]`
 `VIEW[{rsheet#abilityMods.dex}+10][math(hidden):rsheet#passive.stealth]`
+
+
 
 
 ~~~meta-bind-js-view
@@ -521,6 +522,8 @@ return engine.markdown.create(str);
 
 
 ~~~
+
+
 
 
 ```meta-bind-js-view
