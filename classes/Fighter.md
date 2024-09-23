@@ -12,7 +12,7 @@ ability:
   fightingStyle1: Dueling
   fightingStyle2: Great Weapon Fighting
 Level: 20
-l4c: feat
+l4c: 1
 l4v1: 
 l4v11: 
 l4v12: 
@@ -91,7 +91,6 @@ const l8f = context.bound.l8f;
 const l12f = context.bound.l12f; 
 const l16f = context.bound.l16f; 
 const l19f = context.bound.l19f; 
-
 const pclass = context.bound.pclass;
 const fightingStyle1 = context.bound.fightingStyle1
 const fightingStyle2 = context.bound.fightingStyle2
@@ -170,6 +169,7 @@ asiLevels.forEach((asiLevel) => {
     let choice = eval(`l${asiLevel}c`);  
     if (choice == 1) {
       str += `\`INPUT[inlineSelect(${attributes.map(attr => `option(${attr})`).join(', ')}):l${asiLevel}v1]\`\n`;
+      str += `\`VIEEW
     } else if (choice == 2) {
       str += `\`INPUT[inlineSelect(${attributes.map(attr => `option(${attr})`).join(', ')}):l${asiLevel}v11]\`\n`;
       str += `\`INPUT[inlineSelect(${attributes.map(attr => `option(${attr})`).join(', ')}):l${asiLevel}v12]\`\n`;
