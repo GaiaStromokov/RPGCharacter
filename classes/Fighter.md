@@ -9,10 +9,10 @@ ability:
   secondWind: 0
   actionSurge: 0
   indomitable: 0
-  fightingStyle1: Dueling
+  fightingStyle1: Unarmed Fighting
   fightingStyle2: Great Weapon Fighting
 Level: 20
-l4c: 1
+l4c: feat
 l4v1: 
 l4v11: 
 l4v12: 
@@ -36,14 +36,13 @@ l16c:
 l16v1: 
 l16v11: 
 l16v12: 
-l19c: 
-l19v1: 
+l19c: 1
+l19v1: cha
 l19v11: 
 l19v12: 
 pclass: fighter
-l4feat: Athlete
-l4f: Lucky
-l6f: Athlete
+l4sc1: str
+l4sc2: str
 ---
 
 ## Input for Level (for testing)
@@ -161,23 +160,20 @@ let attributes = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
 let feats = ['Actor', 'Alert', 'Athlete', 'Charger', 'Crossbow Expert', 'Defensive Duelist', 'Dual Wielder', 'Durable', 'Elemental Adept', 'Grappler', 'Great Weapon Master', 'Healer', 'Heavily Armored', 'Heavy Armor Master', 'Inspiring Leader', 'Keen Mind', 'Lucky', 'Mage Slayer', 'Magic Initiate', 'Martial Adept', 'Medium Armor Master', 'Mobile', 'Moderately Armored', 'Observant', 'Polearm Master', 'Resilient', 'Ritual Caster', 'Savage Attacker', 'Sentinel', 'Shield Master', 'Skilled', 'Skulker', 'Spell Sniper', 'Tavern Brawler', 'Tough', 'War Caster', 'Weapon Master'];
 
 asiLevels.forEach((asiLevel) => {
-
   if (level >= asiLevel) {
     str += `**ASI-L${asiLevel}:**\n`;
-    str += `\`INPUT[inlineSelect(option(1), option(2), option(feat)):l${asiLevel}c]\`\n`;
+    str += `\`INPUT[inlineSelect(option(asci), option(feat)):l${asiLevel}c]\`\n`;
 
-    let choice = eval(`l${asiLevel}c`);  
-    if (choice == 1) {
-      str += `\`INPUT[inlineSelect(${attributes.map(attr => `option(${attr})`).join(', ')}):l${asiLevel}v1]\`\n`;
-      str += `\`VIEEW
-    } else if (choice == 2) {
-      str += `\`INPUT[inlineSelect(${attributes.map(attr => `option(${attr})`).join(', ')}):l${asiLevel}v11]\`\n`;
-      str += `\`INPUT[inlineSelect(${attributes.map(attr => `option(${attr})`).join(', ')}):l${asiLevel}v12]\`\n`;
+    let choice = eval(`l${asiLevel}c`);
+    if (choice == 'asci') {
+      str += `\`INPUT[inlineSelect(${attributes.map(attr => `option(${attr})`).join(', ')}):l${asiLevel}s1]\`\n`;
+      str += `\`INPUT[inlineSelect(${attributes.map(attr => `option(${attr})`).join(', ')}):l${asiLevel}s2]\`\n`;
     } else if (choice === 'feat') {
       str += `\`INPUT[inlineSelect(${feats.map(feat => `option(${feat})`).join(', ')}):l${asiLevel}f]\`\n`;
     }
   }
 });
+
 
 
 

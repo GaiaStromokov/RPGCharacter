@@ -7,6 +7,7 @@ abilityScores:
   int: 12
   wis: 12
   cha: 12
+  Level: 1
 abilityMods:
   str: 1
   dex: 1
@@ -65,8 +66,8 @@ passive:
   perception: 11
   investigation: 11
   stealth: 11
-pBonus: 2
-Level: 1
+pBonus: 3
+Level: 5
 mhp: 0
 chp: 20
 temphp: 
