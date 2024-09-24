@@ -1,7 +1,7 @@
 ---
 plClass: Barbarian
 abilityScores:
-  str: 12
+  str: 10
   dex: 12
   con: 12
   int: 12
@@ -9,7 +9,7 @@ abilityScores:
   cha: 12
   Level: 1
 abilityMods:
-  str: 1
+  str: 0
   dex: 1
   con: 1
   int: 1

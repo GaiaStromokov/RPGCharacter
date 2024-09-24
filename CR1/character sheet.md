@@ -6,14 +6,14 @@
 > Contents
 
 ## Level
-Level: `INPUT[number(class(boxnumberber)):rsheet#abilityScores.Level]`
+Level: `INPUT[number(class(boxnumber)):rsheet#abilityScores.Level]`
 ProficiencyBonus: `VIEW[**{rsheet#pBonus}**][text(renderMarkdown)]`
 ## Ability Scores
 | <nobr>Stat</nobr> | <nobr>Score</nobr> | <nobr>#</nobr> | <nobr>Stat</nobr> | <nobr>Score</nobr> | <nobr>#</nobr> |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| STR | `INPUT[number(class(boxnumberber)):rsheet#abilityScores.str]` | `VIEW[{rsheet#abilityMods.str}]` | INT | `INPUT[number(class(boxnumberber)):rsheet#abilityScores.int]` | `VIEW[{rsheet#abilityMods.int}]` |
-| DEX | `INPUT[number(class(boxnumberber)):rsheet#abilityScores.dex]` | `VIEW[{rsheet#abilityMods.dex}]` | WIS | `INPUT[number(class(boxnumberber)):rsheet#abilityScores.wis]` | `VIEW[{rsheet#abilityMods.wis}]` |
-| CON | `INPUT[number(class(boxnumberber)):rsheet#abilityScores.con]` | `VIEW[{rsheet#abilityMods.con}]` | CHA | `INPUT[number(class(boxnumberber)):rsheet#abilityScores.cha]` | `VIEW[{rsheet#abilityMods.cha}]` |
+| STR | `INPUT[number(class(boxnumber)):rsheet#abilityScores.str]` | `VIEW[{rsheet#abilityMods.str}]` | INT | `INPUT[number(class(boxnumber)):rsheet#abilityScores.int]` | `VIEW[{rsheet#abilityMods.int}]` |
+| DEX | `INPUT[number(class(boxnumber)):rsheet#abilityScores.dex]` | `VIEW[{rsheet#abilityMods.dex}]` | WIS | `INPUT[number(class(boxnumber)):rsheet#abilityScores.wis]` | `VIEW[{rsheet#abilityMods.wis}]` |
+| CON | `INPUT[number(class(boxnumber)):rsheet#abilityScores.con]` | `VIEW[{rsheet#abilityMods.con}]` | CHA | `INPUT[number(class(boxnumber)):rsheet#abilityScores.cha]` | `VIEW[{rsheet#abilityMods.cha}]` |
 ## Saving Throws
 | <nobr>Stat</nobr> | <nobr>Prof</nobr> | <nobr>Total</nobr> | <nobr>Stat</nobr> | <nobr>Prof</nobr> | <nobr>Total</nobr> |
 |:-----------------:|:-----------------:|:------------------:|:-----------------:|:-----------------:|:------------------:|
@@ -25,12 +25,12 @@ ProficiencyBonus: `VIEW[**{rsheet#pBonus}**][text(renderMarkdown)]`
 |:----------:|:-------------:|:-------:|
 |`VIEW[{rsheet#passive.perception}]`|`VIEW[{rsheet#passive.investigation}]`           |`VIEW[{rsheet#passive.stealth}]`|
 ## General
-| Hit Points  | `INPUT[number(class(boxnumberber)):rsheet#chp]` / `VIEW[{rsheet#mhp}]` (max)                             |
+| Hit Points  | `INPUT[number(class(boxnumber)):rsheet#chp]` / `VIEW[{rsheet#mhp}]` (max)                             |
 | ----------- | ----------------------------------------------------------------------------------- |
-| Temp HP     | `INPUT[number(class(boxnumberber)):rsheet#temphp]`                                                       |
-| Hit dice    | `INPUT[number(class(boxnumberber)):rsheet#hDUse]` /`VIEW[{rsheet#Level}]`d`VIEW[{rsheet#hitDice}]` (max) |
+| Temp HP     | `INPUT[number(class(boxnumber)):rsheet#temphp]`                                                       |
+| Hit dice    | `INPUT[number(class(boxnumber)):rsheet#hDUse]` /`VIEW[{rsheet#Level}]`d`VIEW[{rsheet#hitDice}]` (max) |
 | Initiative  | +`VIEW[{rsheet#abilityMods.dex}]`                                                   |
-| AC          | `INPUT[number(class(boxnumberber)):rsheet#AC]`                                                                                                                           
+| AC          | `INPUT[number(class(boxnumber)):rsheet#AC]`                                                                                                                           
 | Inspiration | `INPUT[toggle:rsheet#Inpiration]`                                                   |
 
 | Death Saves        |                                   |                                   |                                   |
@@ -107,7 +107,6 @@ action:
 
     // Set rsheet#mhp to 0
     const mhp = mb.parseBindTarget('rsheet#mhp', context.file.path);
-    mb.updateMetadata(mhp, () => 0);
 ```
 ___
 ~~~meta-bind-js-view
@@ -394,7 +393,7 @@ return engine.markdown.create(str);
 ___
 
 > [!hint | clean no-i]+ ## SpellBook
->> [!hint | clean no-i]+ Cantrips
+> > [!hint | clean no-i]+ Cantrips
 >> |        <nobr><nobr>        |
 >> |:--------------------------:|
 >> | `INPUT[text:rsheet#l0c1]`  |
@@ -535,7 +534,7 @@ ___
 
 
 
-
+`VIEW[{rsheet#abilityMods.str}]`
 
 
 
@@ -546,6 +545,8 @@ ___
 `VIEW[floor(({rsheet#abilityScores.int}-10)/2)][math(hidden):rsheet#abilityMods.int]`
 `VIEW[floor(({rsheet#abilityScores.wis}-10)/2)][math(hidden):rsheet#abilityMods.wis]`
 `VIEW[floor(({rsheet#abilityScores.cha}-10)/2)][math(hidden):rsheet#abilityMods.cha]`
+
+
 `VIEW[ceil({rsheet#Level}/4)+1][math(hidden):rsheet#pBonus]`
 `VIEW[{rsheet#abilityMods.wis}+10][math(hidden):rsheet#passive.perception]`
 `VIEW[{rsheet#abilityMods.int}+10][math(hidden):rsheet#passive.investigation]`
