@@ -1,42 +1,50 @@
 
 
 ---
-
-> [!info] Character name
-> Contents
-
 ## Level
-Level: `INPUT[number(class(boxnumber)):rsheet#abilityScores.Level]`
+Level: `INPUT[number(class(nb-mb-css)):rsheet#Level]`
 ProficiencyBonus: `VIEW[**{rsheet#pBonus}**][text(renderMarkdown)]`
 ## Ability Scores
 | <nobr>Stat</nobr> | <nobr>Score</nobr> | <nobr>#</nobr> | <nobr>Stat</nobr> | <nobr>Score</nobr> | <nobr>#</nobr> |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| STR | `INPUT[number(class(boxnumber)):rsheet#abilityScores.str]` | `VIEW[{rsheet#abilityMods.str}]` | INT | `INPUT[number(class(boxnumber)):rsheet#abilityScores.int]` | `VIEW[{rsheet#abilityMods.int}]` |
-| DEX | `INPUT[number(class(boxnumber)):rsheet#abilityScores.dex]` | `VIEW[{rsheet#abilityMods.dex}]` | WIS | `INPUT[number(class(boxnumber)):rsheet#abilityScores.wis]` | `VIEW[{rsheet#abilityMods.wis}]` |
-| CON | `INPUT[number(class(boxnumber)):rsheet#abilityScores.con]` | `VIEW[{rsheet#abilityMods.con}]` | CHA | `INPUT[number(class(boxnumber)):rsheet#abilityScores.cha]` | `VIEW[{rsheet#abilityMods.cha}]` |
+| STR | `INPUT[number(class(nb-mb-css)):rsheet#abilityScores.str]` | `VIEW[{rsheet#abilityMods.str}]` | INT | `INPUT[number(class(nb-mb-css)):rsheet#abilityScores.int]` | `VIEW[{rsheet#abilityMods.int}]` |
+| DEX | `INPUT[number(class(nb-mb-css)):rsheet#abilityScores.dex]` | `VIEW[{rsheet#abilityMods.dex}]` | WIS | `INPUT[number(class(nb-mb-css)):rsheet#abilityScores.wis]` | `VIEW[{rsheet#abilityMods.wis}]` |
+| CON | `INPUT[number(class(nb-mb-css)):rsheet#abilityScores.con]` | `VIEW[{rsheet#abilityMods.con}]` | CHA | `INPUT[number(class(nb-mb-css)):rsheet#abilityScores.cha]` | `VIEW[{rsheet#abilityMods.cha}]` |
 ## Saving Throws
 | <nobr>Stat</nobr> | <nobr>Prof</nobr> | <nobr>Total</nobr> | <nobr>Stat</nobr> | <nobr>Prof</nobr> | <nobr>Total</nobr> |
 |:-----------------:|:-----------------:|:------------------:|:-----------------:|:-----------------:|:------------------:|
 | STR  | `INPUT[toggle:rsheet#savingThrows.str]` | `VIEW[{rsheet#abilityMods.str}+{rsheet#pBonus}*{rsheet#savingThrows.str}]` | DEX  | `INPUT[toggle:rsheet#savingThrows.dex]` | `VIEW[{rsheet#abilityMods.dex}+{rsheet#pBonus}*{rsheet#savingThrows.dex}]` |
 | CON  | `INPUT[toggle:rsheet#savingThrows.con]` | `VIEW[{rsheet#abilityMods.con}+{rsheet#pBonus}*{rsheet#savingThrows.con}]` | INT  | `INPUT[toggle:rsheet#savingThrows.int]` | `VIEW[{rsheet#abilityMods.int}+{rsheet#pBonus}*{rsheet#savingThrows.int}]` |
 | WIS  | `INPUT[toggle:rsheet#savingThrows.wis]` | `VIEW[{rsheet#abilityMods.wis}+{rsheet#pBonus}*{rsheet#savingThrows.wis}]` | CHA  | `INPUT[toggle:rsheet#savingThrows.cha]` | `VIEW[{rsheet#abilityMods.cha}+{rsheet#pBonus}*{rsheet#savingThrows.cha}]` |
+
 ## Passive Skills
 | Perception | Investigation | Stealth |
 |:----------:|:-------------:|:-------:|
 |`VIEW[{rsheet#passive.perception}]`|`VIEW[{rsheet#passive.investigation}]`           |`VIEW[{rsheet#passive.stealth}]`|
+
 ## General
-| Hit Points  | `INPUT[number(class(boxnumber)):rsheet#chp]` / `VIEW[{rsheet#mhp}]` (max)                             |
+| Hit Points  | `INPUT[number:rsheet#chp]` / `VIEW[{rsheet#mhp}]` (max)                             |
 | ----------- | ----------------------------------------------------------------------------------- |
-| Temp HP     | `INPUT[number(class(boxnumber)):rsheet#temphp]`                                                       |
-| Hit dice    | `INPUT[number(class(boxnumber)):rsheet#hDUse]` /`VIEW[{rsheet#Level}]`d`VIEW[{rsheet#hitDice}]` (max) |
+| Temp HP     | `INPUT[number:rsheet#temphp]`                                                       |
+| Hit dice    | `INPUT[number:rsheet#hDUse]` /`VIEW[{rsheet#Level}]`d`VIEW[{rsheet#hitDice}]` (max) |
 | Initiative  | +`VIEW[{rsheet#abilityMods.dex}]`                                                   |
-| AC          | `INPUT[number(class(boxnumber)):rsheet#AC]`                                                                                                                           
+| AC          | `INPUT[number:rsheet#AC]`                                                           |
+| Resistances | `INPUT[text:rsheet#Resistances]`                                                    |
+| Immunities  |   `INPUT[text:rsheet#Immunities]`                                                                                     
 | Inspiration | `INPUT[toggle:rsheet#Inpiration]`                                                   |
+|             |                                                                                     |
 
 | Death Saves        |                                   |                                   |                                   |
 | ------- | --------------------------------- | --------------------------------- | --------------------------------- |
 | Success | `INPUT[toggle:rsheet#ds.s1]` | `INPUT[toggle:rsheet#ds.s2]` | `INPUT[toggle:rsheet#ds.s3]` |
 | Faliure | `INPUT[toggle:rsheet#ds.f1]` | `INPUT[toggle:rsheet#ds.f2]` | `INPUT[toggle:rsheet#ds.f3]` |                              |
+
+
+
+
+
+
+
 ## Skills
 | Skill           |                          Expertise                           |                 Proficiency                  |                                                               Total                                                               |
 | :-------------- | :----------------------------------------------------------: | :------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: |
@@ -68,6 +76,9 @@ ___
 | [[Proficiencies#Armor\|Armor]]        | `INPUT[text:rsheet#Armor]`     | [[Ch_traits#Ideals\|Ideals]]           | `INPUT[text:rsheet#Ideals]`    |
 | [[Proficiencies#Tools\|Tools]]        | `INPUT[text:rsheet#Tools]`     | [[Ch_traits#Flaws\|Flaws]]           | `INPUT[text:rsheet#Flaws]`    |
 
+
+
+
 ## Combat
 |             Name              |                       Hit                       |                                     Dmg                                      |           Type            |          Properties           |           Range            |
 | :---------------------------: | :---------------------------------------------: | :--------------------------------------------------------------------------: | :-----------------------: | :---------------------------: | :------------------------: |
@@ -80,16 +91,16 @@ ___
 ## Inventory
 |<nobr>Item<nobr>|<nobr>Count<nobr>|<nobr>Item<nobr>|<nobr>Count<nobr>                         |
 |:--------:|:----:|:----:|:-----------:|
-| `INPUT[text(class(boxtext)):Inventory#item.name1]`  | `INPUT[number(class(boxnumber)):Inventory#item.count1]`  | `INPUT[text(class(boxtext)):Inventory#item.name11]` | `INPUT[number(class(boxnumber)):Inventory#item.count11]` |
-|`INPUT[text(class(boxtext)):Inventory#item.name2]`  | `INPUT[number(class(boxnumber)):Inventory#item.count2]`  | `INPUT[text(class(boxtext)):Inventory#item.name12]` | `INPUT[number(class(boxnumber)):Inventory#item.count12]` |
-|`INPUT[text(class(boxtext)):Inventory#item.name3]`  | `INPUT[number(class(boxnumber)):Inventory#item.count3]`  | `INPUT[text(class(boxtext)):Inventory#item.name13]` | `INPUT[number(class(boxnumber)):Inventory#item.count13]` |
-| `INPUT[text(class(boxtext)):Inventory#item.name4]`  | `INPUT[number(class(boxnumber)):Inventory#item.count4]`  |`INPUT[text(class(boxtext)):Inventory#item.name14]` | `INPUT[number(class(boxnumber)):Inventory#item.count14]` |
-|`INPUT[text(class(boxtext)):Inventory#item.name5]`  | `INPUT[number(class(boxnumber)):Inventory#item.count5]`  | `INPUT[text(class(boxtext)):Inventory#item.name15]` | `INPUT[number(class(boxnumber)):Inventory#item.count15]` |
-|`INPUT[text(class(boxtext)):Inventory#item.name6]`  | `INPUT[number(class(boxnumber)):Inventory#item.count6]`  |`INPUT[text(class(boxtext)):Inventory#item.name16]` | `INPUT[number(class(boxnumber)):Inventory#item.count16]` |
-|`INPUT[text(class(boxtext)):Inventory#item.name7]`  | `INPUT[number(class(boxnumber)):Inventory#item.count7]`  |`INPUT[text(class(boxtext)):Inventory#item.name17]` | `INPUT[number(class(boxnumber)):Inventory#item.count17]` |
-|`INPUT[text(class(boxtext)):Inventory#item.name8]`  | `INPUT[number(class(boxnumber)):Inventory#item.count8]`  | `INPUT[text(class(boxtext)):Inventory#item.name18]` | `INPUT[number(class(boxnumber)):Inventory#item.count18]` |
-|`INPUT[text(class(boxtext)):Inventory#item.name9]`  | `INPUT[number(class(boxnumber)):Inventory#item.count9]`  |`INPUT[text(class(boxtext)):Inventory#item.name19]` | `INPUT[number(class(boxnumber)):Inventory#item.count19]` |
-|`INPUT[text(class(boxtext)):Inventory#item.name10]` | `INPUT[number(class(boxnumber)):Inventory#item.count10]` |`INPUT[text(class(boxtext)):Inventory#item.name20]` | `INPUT[number(class(boxnumber)):Inventory#item.count20]`|
+| `INPUT[text:Inventory#item.name1]`  | `INPUT[number(class(nm-num)):Inventory#item.count1]`  | `INPUT[text:Inventory#item.name11]` | `INPUT[number(class(nm-num)):Inventory#item.count11]` |
+|`INPUT[text:Inventory#item.name2]`  | `INPUT[number(class(nm-num)):Inventory#item.count2]`  | `INPUT[text:Inventory#item.name12]` | `INPUT[number(class(nm-num)):Inventory#item.count12]` |
+|`INPUT[text:Inventory#item.name3]`  | `INPUT[number(class(nm-num)):Inventory#item.count3]`  | `INPUT[text:Inventory#item.name13]` | `INPUT[number(class(nm-num)):Inventory#item.count13]` |
+| `INPUT[text:Inventory#item.name4]`  | `INPUT[number(class(nm-num)):Inventory#item.count4]`  |`INPUT[text:Inventory#item.name14]` | `INPUT[number(class(nm-num)):Inventory#item.count14]` |
+|`INPUT[text:Inventory#item.name5]`  | `INPUT[number(class(nm-num)):Inventory#item.count5]`  | `INPUT[text:Inventory#item.name15]` | `INPUT[number(class(nm-num)):Inventory#item.count15]` |
+|`INPUT[text:Inventory#item.name6]`  | `INPUT[number(class(nm-num)):Inventory#item.count6]`  |`INPUT[text:Inventory#item.name16]` | `INPUT[number(class(nm-num)):Inventory#item.count16]` |
+|`INPUT[text:Inventory#item.name7]`  | `INPUT[number(class(nm-num)):Inventory#item.count7]`  |`INPUT[text:Inventory#item.name17]` | `INPUT[number(class(nm-num)):Inventory#item.count17]` |
+|`INPUT[text:Inventory#item.name8]`  | `INPUT[number(class(nm-num)):Inventory#item.count8]`  | `INPUT[text:Inventory#item.name18]` | `INPUT[number(class(nm-num)):Inventory#item.count18]` |
+|`INPUT[text:Inventory#item.name9]`  | `INPUT[number(class(nm-num)):Inventory#item.count9]`  |`INPUT[text:Inventory#item.name19]` | `INPUT[number(class(nm-num)):Inventory#item.count19]` |
+|`INPUT[text:Inventory#item.name10]` | `INPUT[number(class(nm-num)):Inventory#item.count10]` |`INPUT[text:Inventory#item.name20]` | `INPUT[number(class(nm-num)):Inventory#item.count20]`|
 ___
 ##### Rest:
 ```meta-bind-button
@@ -107,6 +118,7 @@ action:
 
     // Set rsheet#mhp to 0
     const mhp = mb.parseBindTarget('rsheet#mhp', context.file.path);
+    mb.updateMetadata(mhp, () => 0);
 ```
 ___
 ~~~meta-bind-js-view
@@ -390,115 +402,42 @@ const str = generateTable();
 return engine.markdown.create(str);
 
 ~~~
+
+
+> [!SpellBook| clean no-i]+
+>> [!infobox | wfull]
+>|        <nobr><nobr>        |        <nobr><nobr>        |       <nobr><nobr>        |
+>|:--------------------------:|:--------------------------:|:-------------------------:|
+>|       **Cantrips:**        |        **Level 3:**        |        **Level6**         |
+>| `INPUT[text:rsheet#l0c1]`  | `INPUT[text:rsheet#l3c1]`  | `INPUT[text:rsheet#l6c1]` |
+>| `INPUT[text:rsheet#l0c2]`  | `INPUT[text:rsheet#l3c2]`  | `INPUT[text:rsheet#l6c2]` |
+>| `INPUT[text:rsheet#l0c3]`  | `INPUT[text:rsheet#l3c3]`  | `INPUT[text:rsheet#l6c3]` |
+>| `INPUT[text:rsheet#l0c4]`  | `INPUT[text:rsheet#l3c4]`  | `INPUT[text:rsheet#l6c4]` |
+>| `INPUT[text:rsheet#l0c5]`  | `INPUT[text:rsheet#l3c5]`  | `INPUT[text:rsheet#l6c5]` |
+>|        **Level 1:**        | `INPUT[text:rsheet#l3c6]`  |    `INPUT[text:l6c6]`     |
+>| `INPUT[text:rsheet#l1c1]`  | `INPUT[text:rsheet#l3c7]`  |       **Level 7:**        |
+>| `INPUT[text:rsheet#l1c2]`  | `INPUT[text:rsheet#l3c8]`  | `INPUT[text:rsheet#l7c1]` |
+>| `INPUT[text:rsheet#l1c3]`  | `INPUT[text:rsheet#l3c9]`  | `INPUT[text:rsheet#l7c2]` |
+>| `INPUT[text:rsheet#l1c4]`  | `INPUT[text:rsheet#l3c10]` | `INPUT[text:rsheet#l7c3]` |
+>| `INPUT[text:rsheet#l1c5]`  |        **Level 4:**        | `INPUT[text:rsheet#l7c4]` |
+>| `INPUT[text:rsheet#l1c6]`  | `INPUT[text:rsheet#l4c1]`  | `INPUT[text:rsheet#l7c5]` |
+>| `INPUT[text:rsheet#l1c7]`  | `INPUT[text:rsheet#l4c2]`  |         Level 8:          |
+>| `INPUT[text:rsheet#l1c8]`  | `INPUT[text:rsheet#l4c3]`  | `INPUT[text:rsheet#l8c1]` |
+>| `INPUT[text:rsheet#l1c9]`  | `INPUT[text:rsheet#l4c4]`  | `INPUT[text:rsheet#l8c2]` |
+>| `INPUT[text:rsheet#l1c10]` | `INPUT[text:rsheet#l4c5]`  | `INPUT[text:rsheet#l8c3]` |
+>|        **Level 2:**        | `INPUT[text:rsheet#l4c6]`  |    `INPUT[text:l8c4]`     |
+>| `INPUT[text:rsheet#l2c1]`  | `INPUT[text:rsheet#l4c7]`  |         Level 9:          |
+>| `INPUT[text:rsheet#l2c2]`  |        **Level 5:**        | `INPUT[text:rsheet#l9c1]` |
+>| `INPUT[text:rsheet#l2c3]`  | `INPUT[text:rsheet#l5c1]`  | `INPUT[text:rsheet#l9c2]` |
+>| `INPUT[text:rsheet#l2c4]`  | `INPUT[text:rsheet#l5c2]`  | `INPUT[text:rsheet#l9c3]` |
+>| `INPUT[text:rsheet#l2c5]`  | `INPUT[text:rsheet#l5c3]`  | `INPUT[text:rsheet#l9c4]` |
+>| `INPUT[text:rsheet#l2c6]`  | `INPUT[text:rsheet#l5c4]`  |                           |
+>| `INPUT[text:rsheet#l2c7]`  | `INPUT[text:rsheet#l5c5]`  |                           |
+>| `INPUT[text:rsheet#l2c8]`  | `INPUT[text:rsheet#l5c6]`  |                           |
+>| `INPUT[text:rsheet#l2c9]`  | `INPUT[text:rsheet#l5c7]`  |                           |
+>| `INPUT[text:rsheet#l2c10]` |                            |                           |
+
 ___
-
-> [!hint | clean no-i]+ ## SpellBook
-> > [!hint | clean no-i]+ Cantrips
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l0c1]`  |
->> | `INPUT[text:rsheet#l0c2]`  |
->> | `INPUT[text:rsheet#l0c3]`  |
->> | `INPUT[text:rsheet#l0c4]`  |
->> | `INPUT[text:rsheet#l0c5]`  |
->>
->> > [!hint | clean no-i]+ Level 1
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l1c1]`  |
->> | `INPUT[text:rsheet#l1c2]`  |
->> | `INPUT[text:rsheet#l1c3]`  |
->> | `INPUT[text:rsheet#l1c4]`  |
->> | `INPUT[text:rsheet#l1c5]`  |
->> | `INPUT[text:rsheet#l1c6]`  |
->> | `INPUT[text:rsheet#l1c7]`  |
->> | `INPUT[text:rsheet#l1c8]`  |
->> | `INPUT[text:rsheet#l1c9]`  |
->> | `INPUT[text:rsheet#l1c10]` |
->>
->> > [!hint | clean no-i]+ Level 2
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l2c1]`  |
->> | `INPUT[text:rsheet#l2c2]`  |
->> | `INPUT[text:rsheet#l2c3]`  |
->> | `INPUT[text:rsheet#l2c4]`  |
->> | `INPUT[text:rsheet#l2c5]`  |
->> | `INPUT[text:rsheet#l2c6]`  |
->> | `INPUT[text:rsheet#l2c7]`  |
->> | `INPUT[text:rsheet#l2c8]`  |
->> | `INPUT[text:rsheet#l2c9]`  |
->> | `INPUT[text:rsheet#l2c10]` |
->>
->> > [!hint | clean no-i]+ Level 3
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l3c1]`  |
->> | `INPUT[text:rsheet#l3c2]`  |
->> | `INPUT[text:rsheet#l3c3]`  |
->> | `INPUT[text:rsheet#l3c4]`  |
->> | `INPUT[text:rsheet#l3c5]`  |
->> | `INPUT[text:rsheet#l3c6]`  |
->> | `INPUT[text:rsheet#l3c7]`  |
->> | `INPUT[text:rsheet#l3c8]`  |
->> | `INPUT[text:rsheet#l3c9]`  |
->> | `INPUT[text:rsheet#l3c10]` |
->>
->> > [!hint | clean no-i]+ Level 4
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l4c1]`  |
->> | `INPUT[text:rsheet#l4c2]`  |
->> | `INPUT[text:rsheet#l4c3]`  |
->> | `INPUT[text:rsheet#l4c4]`  |
->> | `INPUT[text:rsheet#l4c5]`  |
->> | `INPUT[text:rsheet#l4c6]`  |
->> | `INPUT[text:rsheet#l4c7]`  |
->>
->> > [!hint | clean no-i]+ Level 5
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l5c1]`  |
->> | `INPUT[text:rsheet#l5c2]`  |
->> | `INPUT[text:rsheet#l5c3]`  |
->> | `INPUT[text:rsheet#l5c4]`  |
->> | `INPUT[text:rsheet#l5c5]`  |
->> | `INPUT[text:rsheet#l5c6]`  |
->>
->> > [!hint | clean no-i]+ Level 6
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l6c1]`  |
->> | `INPUT[text:rsheet#l6c2]`  |
->> | `INPUT[text:rsheet#l6c3]`  |
->> | `INPUT[text:rsheet#l6c4]`  |
->> | `INPUT[text:rsheet#l6c5]`  |
->>
->> > [!hint | clean no-i]+ Level 7
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l7c1]`  |
->> | `INPUT[text:rsheet#l7c2]`  |
->> | `INPUT[text:rsheet#l7c3]`  |
->> | `INPUT[text:rsheet#l7c4]`  |
->> | `INPUT[text:rsheet#l7c5]`  |
->>
->> > [!hint | clean no-i]+ Level 8
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l8c1]`  |
->> | `INPUT[text:rsheet#l8c2]`  |
->> | `INPUT[text:rsheet#l8c3]`  |
->>
->> > [!hint | clean no-i]+ Level 9
->> |        <nobr><nobr>        |
->> |:--------------------------:|
->> | `INPUT[text:rsheet#l9c1]`  |
->> | `INPUT[text:rsheet#l9c2]`  |
->> | `INPUT[text:rsheet#l9c3]`  |
->> | `INPUT[text:rsheet#l9c4]`  |
-
-
 > [!Admin| clean no-i]+
 >Set Max HP`INPUT[number:rsheet#mhp]`
 
@@ -534,7 +473,7 @@ ___
 
 
 
-`VIEW[{rsheet#abilityMods.str}]`
+
 
 
 
@@ -546,8 +485,8 @@ ___
 `VIEW[floor(({rsheet#abilityScores.wis}-10)/2)][math(hidden):rsheet#abilityMods.wis]`
 `VIEW[floor(({rsheet#abilityScores.cha}-10)/2)][math(hidden):rsheet#abilityMods.cha]`
 
-
 `VIEW[ceil({rsheet#Level}/4)+1][math(hidden):rsheet#pBonus]`
+
 `VIEW[{rsheet#abilityMods.wis}+10][math(hidden):rsheet#passive.perception]`
 `VIEW[{rsheet#abilityMods.int}+10][math(hidden):rsheet#passive.investigation]`
 `VIEW[{rsheet#abilityMods.dex}+10][math(hidden):rsheet#passive.stealth]`

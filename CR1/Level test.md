@@ -1,0 +1,1 @@
+~~~meta-bind-js-view {Level} as level {skillChoice.skill1} as skill1 {skillChoice.skill2} as skill2 {rsheet#abilityMods.con} as conMod {rsheet#hitDice} as hitDice {l4c} as l4c {l6c} as l6c {l8c} as l8c {l12c} as l12c {l14c} as l14c {l16c} as l16c {l19c} as l19c
