@@ -13,8 +13,11 @@ aMod:
   int: 1
   wis: 1
   cha: 1
-level: 1
+level: 12
 hdice: 8
+ability:
+  secondWind: 0
+  indomitable: 0
 ---
 str: `VIEW[{str}]`
 level: `INPUT[number:level]`
@@ -26,10 +29,15 @@ const mb = engine.getPlugin('obsidian-meta-bind-plugin').api;
 const lvlT = mb.parseBindTarget('level', context.file.path);
 const hitdiceT = mb.parseBindTarget('hdice', context.file.path);
 const mconT = mb.parseBindTarget('aMod.con', context.file.path);
+
+
+	
+
+
 return mb.reactiveMetadata([lvlT], component, (from) => {
-    const str = generateCharacterInfo(from);
+    const outstring = generateCharacterInfo(from);
     // Render the markdown
-    return engine.markdown.create(str);
+    return engine.markdown.create(outstring);
 });
 
 // Function to generate the character information string
@@ -42,10 +50,19 @@ function generateCharacterInfo(level) {
     // Skills Section
     if (level >= 1) {
         messages.push(generateSkillsSection());
+        messages.push(secondwind(level))
     }
 
-    // Fighting Styles Section
-    messages.push(generateFightingStylesSection(level));
+	if (level >= 2) {
+		messages.push(generateFightingStylesSection(level));
+		messages.push(actionsurge(level))
+	
+	
+	}
+
+	if (level >= 9)
+		messages.push(Indomitable(level))
+    
 
     return messages.join('\n');
 }
@@ -55,7 +72,6 @@ function generateHitPoints(level) {
 	
     let hitDice = mb.getMetadata(hitdiceT); // Example hit dice (replace with your actual variable)
     let conMod = mb.getMetadata(mconT); // Example constitution modifier (replace with your actual variable)
-
     let baseHP = hitDice + conMod; 
     let healthIncrease = (level > 1) ? conMod : 0; 
     let currentHP = baseHP + (level - 1) * healthIncrease; 
@@ -78,5 +94,34 @@ function generateFightingStylesSection(level) {
     }
     return section;
 }
+
+function secondwind(level) {
+	let swstring = '';
+    swstring += `Second Wind: \`VIEW[{ability.secondWind}]\` / 1 use\n`;  
+    swstring += `\`INPUT[slider(minValue(0), maxValue(1), addLabels):ability.secondWind]\`\n`;
+  return swstring;
+}
+
+function actionsurge(level) {
+	let acsstring = '';
+	let maxActionSurge = (level >= 17) ? 2 : 1; 
+    acsstring += `\nAction Surge: \`VIEW[{ability.actionSurge}]\` / ${maxActionSurge} Uses\n`;
+      acsstring += `You can take one additional action on your turn.\n`;
+      acsstring += `\`INPUT[slider(minValue(0), maxValue(${maxActionSurge}), addLabels):ability.actionSurge]\`\n`;
+  return acsstring;
+}
+
+function Indomitable(level) {
+	let instring = '';
+    let maxIndomitableUses = (level >= 17) ? 3 : (level >= 13) ? 2 : 1; 
+	instring += `\nIndomitable: \`VIEW[{ability.indomitable}]\` / ${maxIndomitableUses} Uses\n`;
+	instring += `You can reroll a failed saving throw.\n`;
+	instring += `\`INPUT[slider(minValue(0), maxValue(${maxIndomitableUses}), addLabels):ability.indomitable]\`\n`;
+  return instring;
+}
+
+
+
+
 ```
 
